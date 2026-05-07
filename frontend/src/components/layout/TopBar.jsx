@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Search, Bell, Menu, CheckCircle2, FileText, Activity } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
-export default function TopBar() {
+export default function TopBar({ onOpenAccount }) {
   const { userProfile } = useAuth();
   const [isNotifOpen, setIsNotifOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -126,7 +126,10 @@ export default function TopBar() {
         </div>
 
         {/* User Profile */}
-        <div className="flex items-center gap-3">
+        <div 
+          onClick={onOpenAccount}
+          className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity"
+        >
           <div className="text-right hidden sm:block">
             <div className="text-body-sm font-medium text-primary">{userProfile?.display_name || 'User'}</div>
           </div>

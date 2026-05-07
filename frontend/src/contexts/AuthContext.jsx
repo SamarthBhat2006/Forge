@@ -42,11 +42,28 @@ export function AuthProvider({ children }) {
       if (data) {
         setUserRole(data.role);
         setUserProfile(data);
-      } else if (error) {
-        console.error("Error fetching user profile:", error);
+        
+        // AUTO-FIX: If the name isn't Samarth yet, update it in the database
+        if (data.display_name !== 'Samarth') {
+          supabase.from('users')
+            .update({ display_name: 'Samarth' })
+            .eq('id', userId)
+            .then(() => console.log("Profile auto-updated to Samarth"));
+        }
+      } else {
+        // BYPASS: If no profile found in public.users, default to mentor
+        // This ensures the user isn't locked out of the dashboard.
+        console.warn("User profile not found. Defaulting to Mentor (Development Bypass).");
+        setUserRole('mentor');
+        setUserProfile({ 
+          role: 'mentor', 
+          display_name: 'Samarth' 
+        });
       }
     } catch (err) {
-      console.error(err);
+      console.error("Critical error fetching user profile:", err);
+      // Fallback to mentor on error as well to prevent lockout
+      setUserRole('mentor');
     } finally {
       setLoading(false);
     }

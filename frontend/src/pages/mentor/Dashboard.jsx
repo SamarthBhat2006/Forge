@@ -221,29 +221,8 @@ export default function Dashboard() {
           </div>
           
           <ul className="space-y-4">
-            <li className="flex items-start gap-3">
-              <div className="p-1.5 bg-primary/10 rounded mt-0.5"><CheckCircle2 className="h-3 w-3 text-primary" /></div>
-              <div>
-                <p className="text-sm text-primary font-medium">Attendance Marked</p>
-                <p className="text-xs text-secondary">Session: Node.js Basics</p>
-                <p className="text-xs text-tertiary mt-0.5">2 hours ago</p>
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="p-1.5 bg-success/10 rounded mt-0.5"><FileText className="h-3 w-3 text-success" /></div>
-              <div>
-                <p className="text-sm text-primary font-medium">Material Added</p>
-                <p className="text-xs text-secondary">React Hooks Slides</p>
-                <p className="text-xs text-tertiary mt-0.5">Yesterday</p>
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <div className="p-1.5 bg-accent/10 rounded mt-0.5"><PlayCircle className="h-3 w-3 text-accent" /></div>
-              <div>
-                <p className="text-sm text-primary font-medium">Session Created</p>
-                <p className="text-xs text-secondary">Intro to Databases</p>
-                <p className="text-xs text-tertiary mt-0.5">2 days ago</p>
-              </div>
+            <li className="text-center py-8 text-tertiary text-sm">
+              No recent activity yet.
             </li>
           </ul>
         </div>

@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 
-export default function Sidebar() {
+export default function Sidebar({ onOpenAccount }) {
   const { userRole, userProfile } = useAuth();
 
   const handleLogout = async () => {
@@ -111,9 +111,12 @@ export default function Sidebar() {
         )}
 
         <NavGroup label="ACCOUNT">
-          <button className="w-full flex items-center gap-3 px-4 h-11 rounded-lg transition-colors text-body text-secondary hover:bg-surface hover:text-primary">
+          <button 
+            onClick={onOpenAccount}
+            className="w-full flex items-center gap-3 px-4 h-11 rounded-lg transition-colors text-body text-secondary hover:bg-surface hover:text-primary"
+          >
             <Settings className="h-5 w-5 stroke-[1.75px]" />
-            Settings
+            Account
           </button>
           <button 
             onClick={handleLogout}

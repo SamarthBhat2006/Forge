@@ -15,6 +15,7 @@ import Dashboard from './pages/mentor/Dashboard';
 import MarkAttendance from './pages/mentor/MarkAttendance';
 import StudentHistory from './pages/mentor/StudentHistory';
 import Materials from './pages/mentor/Materials';
+import BulkUpload from './pages/mentor/BulkUpload';
 
 // Simple Index Route to redirect based on role
 function IndexRedirect() {
@@ -91,7 +92,7 @@ function App() {
               path="/upload" 
               element={
                 <RoleGuard allowedRoles={['mentor']}>
-                  <Placeholder title="Upload CSV" />
+                  <BulkUpload />
                 </RoleGuard>
               } 
             />
