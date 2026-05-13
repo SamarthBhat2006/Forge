@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { BulkUploadProvider } from './contexts/BulkUploadContext';
 
 // Layout & Guards
 import MainLayout from './components/layout/MainLayout';
@@ -42,6 +43,7 @@ const Placeholder = ({ title }) => (
 function App() {
   return (
     <AuthProvider>
+      <BulkUploadProvider>
       <Router>
         <Routes>
           {/* Public Routes */}
@@ -128,6 +130,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Router>
+      </BulkUploadProvider>
     </AuthProvider>
   );
 }

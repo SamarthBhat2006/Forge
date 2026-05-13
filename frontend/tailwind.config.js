@@ -9,6 +9,9 @@ export default {
       colors: {
         void: '#07070B',
         canvas: '#0B0B11',
+        primary: '#F5F5F7',
+        secondary: '#8A8A94',
+        tertiary: '#52525B',
         surface: {
           DEFAULT: '#111118',
           raised: '#16161F',
@@ -18,11 +21,6 @@ export default {
           subtle: 'rgba(255,255,255,0.06)',
           default: 'rgba(255,255,255,0.10)',
           strong: 'rgba(255,255,255,0.16)',
-        },
-        fg: {
-          primary: '#F5F5F7',
-          secondary: '#8A8A94',
-          tertiary: '#52525B',
         },
         accent: {
           glow: '#6366F1',

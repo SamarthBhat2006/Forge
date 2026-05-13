@@ -53,11 +53,12 @@ export function AuthProvider({ children }) {
       } else {
         // BYPASS: If no profile found in public.users, default to mentor
         // This ensures the user isn't locked out of the dashboard.
-        console.warn("User profile not found. Defaulting to Mentor (Development Bypass).");
+        console.warn("CRITICAL: User profile missing in public.users table. Database operations (like Bulk Import) will fail due to RLS policies. Please run the setup_auth_sync.sql in your Supabase SQL editor.");
         setUserRole('mentor');
         setUserProfile({ 
           role: 'mentor', 
-          display_name: 'Samarth' 
+          display_name: 'Samarth',
+          is_bypass: true
         });
       }
     } catch (err) {
